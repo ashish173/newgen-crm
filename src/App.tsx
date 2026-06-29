@@ -14,6 +14,12 @@ import {
   AlertCircle
 } from 'lucide-react';
 import { Routes, Route, Link, useLocation } from 'react-router-dom';
+import Leads from './pages/Leads';
+import Quotations from './pages/Quotations';
+import SiteVisits from './pages/SiteVisits';
+import Production from './pages/Production';
+import Installation from './pages/Installation';
+import Payments from './pages/Payments';
 
 // --- Dummy Data ---
 const MOCK_PROJECTS = [
@@ -106,10 +112,12 @@ const Sidebar = () => {
 
   const navItems = [
     { icon: <LayoutDashboard className="w-5 h-5" />, label: 'Dashboard', path: '/' },
-    { icon: <Briefcase className="w-5 h-5" />, label: 'Projects', path: '/projects' },
-    { icon: <Building2 className="w-5 h-5" />, label: 'Clients', path: '/clients' },
-    { icon: <DoorClosed className="w-5 h-5" />, label: 'Products', path: '/products' },
-    { icon: <Settings className="w-5 h-5" />, label: 'Settings', path: '/settings' },
+    { icon: <Building2 className="w-5 h-5" />, label: 'Leads', path: '/leads' },
+    { icon: <Briefcase className="w-5 h-5" />, label: 'Quotations', path: '/quotations' },
+    { icon: <Clock className="w-5 h-5" />, label: 'Site Visits', path: '/site-visits' },
+    { icon: <DoorClosed className="w-5 h-5" />, label: 'Production', path: '/production' },
+    { icon: <Settings className="w-5 h-5" />, label: 'Installation', path: '/installation' },
+    { icon: <AlertCircle className="w-5 h-5" />, label: 'Payments', path: '/payments' },
   ];
 
   return (
@@ -310,18 +318,6 @@ const Dashboard = () => {
   );
 };
 
-const PlaceholderPage = ({ title }: { title: string }) => (
-  <div className="flex items-center justify-center h-[calc(100vh-4rem)]">
-    <div className="text-center space-y-4">
-      <div className="w-16 h-16 bg-gray-100 rounded-2xl flex items-center justify-center mx-auto text-gray-400">
-        <LayoutDashboard className="w-8 h-8" />
-      </div>
-      <h2 className="text-2xl font-bold text-gray-900">{title}</h2>
-      <p className="text-gray-500">This module is under construction.</p>
-    </div>
-  </div>
-);
-
 function App() {
   return (
     <div className="min-h-screen bg-[#F9FAFB] font-sans selection:bg-black selection:text-white flex">
@@ -331,10 +327,12 @@ function App() {
         <main className="flex-1 overflow-x-hidden">
           <Routes>
             <Route path="/" element={<Dashboard />} />
-            <Route path="/projects" element={<PlaceholderPage title="Projects Module" />} />
-            <Route path="/clients" element={<PlaceholderPage title="Clients Directory" />} />
-            <Route path="/products" element={<PlaceholderPage title="Product Catalog" />} />
-            <Route path="/settings" element={<PlaceholderPage title="System Settings" />} />
+            <Route path="/leads" element={<Leads />} />
+            <Route path="/quotations" element={<Quotations />} />
+            <Route path="/site-visits" element={<SiteVisits />} />
+            <Route path="/production" element={<Production />} />
+            <Route path="/installation" element={<Installation />} />
+            <Route path="/payments" element={<Payments />} />
           </Routes>
         </main>
       </div>
